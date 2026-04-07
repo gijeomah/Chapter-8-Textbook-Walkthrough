@@ -58,6 +58,17 @@ function playDrawPoker() {
          // Display the card images on the table 
          for (let i = 0; i < cardImages.length; i++){
             cardImages[i].src = myHand.cards[i].cardImage();
+            //flip the card images when clicked 
+            cardImages[i].onclick = function(){
+               if (this.src.includes("cardback.png")){
+                  //Show the front of the card
+                  this.src = myHand.cards[i].cardImage();
+               }
+               else{
+                  //Show the back of the card
+                  this.src = "cardback.png";
+               }
+            }
          }
       }
       else{
@@ -73,7 +84,14 @@ function playDrawPoker() {
       betSelection.disabled = false;      // Turn on the Bet Selection list
       drawButton.disabled = true;         // Turn off the Draw button
       standButton.disabled = true;        // Turn off the Stand Button
-      
+      // Replace the cards marked to be discarded
+      for (let i = 0; i < cardImages.length; i++ ){
+         if (cardImages[i].src.includes("cardback.png")){
+            // Replace the card and its image on the table 
+            myHand.replaceCard(i, myDeck);
+            cardImages[i].src = myHand.cards[i].cardImage();
+         }
+      }
 
 
    });
