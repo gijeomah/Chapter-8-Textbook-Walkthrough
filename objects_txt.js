@@ -60,6 +60,10 @@ function pokerHand(handLength){
 pokerHand.prototype.replaceCard = function(index, pokerDeck){
    this.cards[index] = pokerDeck.cards.shift();
 };
+// Method to determine the value of the pokerHand
+pokerHand.prototype.getHandValue = function(){
+   return handType(this);
+
 
 
 
@@ -203,7 +207,7 @@ pokerHand.prototype.replaceCard = function(index, pokerDeck){
    /* ------------------------------------------------+
    |             End of the  handType() function      |
    +-------------------------------------------------*/   
- 
+};
  
  
  
