@@ -88,6 +88,7 @@ pokerHand.prototype.replaceCard = function(index, pokerDeck){
 
 
 
+
    
    /* ------------------------------------------------+
    | The handType() function returns a text string of |
